@@ -30,13 +30,6 @@ jobs:
       # Run unit tests
       - name: Run unit tests
         run: bash ./gradlew test
-      
-      # Run emulator
-      - name: Run integration test on emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: bash ./gradlew createDebugCoverageReport --stacktrace
 
       # Generate jacoco report
       - name: Generate report
