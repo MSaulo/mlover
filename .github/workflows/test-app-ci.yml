@@ -27,12 +27,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      # Run emulator
-      - name: Run integration test on emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: ./gradlew createDebugCoverageReport --stacktrace
+      # Run unit tests
+      - name: Run unit tests
+        run:
+        ./gradlew test
 
       # Generate jacoco report
       - name: Generate report
