@@ -30,17 +30,3 @@ jobs:
       # Run unit tests
       - name: Run unit tests
         run: bash ./gradlew test
-
-      # Generate jacoco report
-      - name: Generate report
-        run: ./gradlew jacocoTestReport
-
-      # Upload report
-      - name: Upload Reports
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: reports
-          path: |
-            /build/coverage-report
-            app/build/reports
