@@ -1,0 +1,49 @@
+name: Test Application
+on: [push]
+
+jobs:
+  build-and-test:
+    name: Build, Lint and Test
+    runs-on: macos-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up our JDK environment
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Cache Gradle and wrapper
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Run emulator
+      - name: Run integration test on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew createDebugCoverageReport --stacktrace
+
+      # Generate jacoco report
+      - name: Generate report
+        run: ./gradlew jacocoTestReport
+
+      # Upload report
+      - name: Upload Reports
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: reports
+          path: |
+            /build/coverage-report
+            app/build/reports

@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">MLover</string>
+    <string name="app_name_alt">Comic Center</string>
+
+    <string name="favorite">Favoritos</string>
+    <string name="favorite_empty">Você não possuí nenhum personagem favorito :(</string>
+
+    <string name="label_search_character">Pesquisar Personagem</string>
+    <string name="hint_search_character">Pesquisar personagem…</string>
+    <string name="search_term">Termo procurado</string>
+    <string name="search_empty">Nenhum personagem encontrado :(</string>
+
+    <string name="back_button">Voltar</string>
+
+    <string name="internet_fail">Sem conexão com a Internet</string>
+
+
+    <!-- Activity Main -->
+    <string name="description_header_image_home">Imagem de um cubo laranja</string>
+    <string name="bottom_navigation_home">Home</string>
+    <string name="bottom_navigation_stream">Streams</string>
+    <string name="bottom_navigation_events">Eventos</string>
+    <string name="bottom_navigation_profile">Perfil</string>
+
+    <!-- Activity Character Details -->
+    <string name="text_header_character_details">Detalhes do Personagem</string>
+    <string name="name_character_details">Nome do personagem</string>
+    <string name="description_character_details">Descrição do personagem</string>
+
+    <!-- Adapter Character Layout -->
+    <string name="name_character_layout">Nome</string>
+    <string name="code_character_layout">Código</string>
+    <string name="description_hero_character_layout">Imagem do personagem…</string>
+    <string name="description_favorite_character_layout">Botão para favoritar o personagem</string>
+
+
+    <string name="no_suitable_to_challenge">Não comtemplado pelo desafio.</string>
+
+
+</resources>
